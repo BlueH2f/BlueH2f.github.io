@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实验3.2：计算器</title>
+    <style>
+        textarea {
+            text-align : right;
+            width: 100%;
+            height: 100px;
+            font-size: 30px;
+        }
+        input {
+        	width: 100%;
+        	height: 60px;
+        	
+        }
+        #btn_AC {
+        	width: 100%;
+        }
+    </style>
+    <script>
+        function add_TOText(id) {
+            var variable;
+            variable=document.getElementById("btn_"+id).value;
+            var content=document.getElementById('cunter_Textarea');
+            if (variable=="AC")
+            	{
+            		content.value="";           		
+            	}
+            else if (variable=='X')	
+            	{
+            		var delContent = content.value;
+            		delContent = delContent.substring(0,delContent.length-1);
+            		content.value= delContent;
+            	}
+            else if (variable!='=')
+                content.value=content.value+variable;
+            else if (variable=='=')
+            	{
+            		content.value=content.value+"="+eval(content.value);
+            	}          
+        }
+    </script>
+</head>
+<body>
+<table border="1" align="center">
+    <tr>
+        <th rowspan="1" colspan="4">
+            <textarea id="cunter_Textarea" readonly="readonly"></textarea>
+        </th>
+    </tr>
+    <tr>
+        <th colspan="3">
+            <input type="button"  value="AC" id="btn_AC" size="10"  onclick="add_TOText('AC')">
+        </th>
+        <th>
+        	<input type="button" value="X" id="btn_X" size="3"  onclick="add_TOText('X')">
+        </th>
+    </tr>
+    <tr>
+        <th >
+        	<input type="button" value="7" id="btn_7" size="3"  onclick="add_TOText(7)">
+        </th>
+        <th>
+        	<input type="button" value="8" id="btn_8" size="3"  onclick="add_TOText(8)">
+        </th>
+        <th>
+        	<input type="button" value="9" id="btn_9" size="3"  onclick="add_TOText(9)">
+        </th>
+        <th>
+        	<input type="button" value="/" id="btn_/" size="3"  onclick="add_TOText('/')">
+        </th>
+    </tr>
+    <tr>
+        <th>
+        	<input type="button" value="4" id="btn_4" size="3"  onclick="add_TOText(4)">
+
+        </th>
+        <th>
+         	<input type="button" value="5" id="btn_5" size="3"  onclick="add_TOText(5)">       	
+        </th>
+        <th>
+        	 <input type="button" value="6" id="btn_6" size="3"  onclick="add_TOText(6)">
+        </th>
+        <th>
+        	<input type="button" value="*" id="btn_*" size="3"  onclick="add_TOText('*')">
+        </th>
+    </tr>
+    <tr>
+        <th>
+        	<input type="button" value="1" id="btn_1" size="3"  onclick="add_TOText(1)">
+        </th>
+        <th>
+        	<input type="button" value="2" id="btn_2" size="3"  onclick="add_TOText(2)">
+        </th>
+        <th>
+        	<input type="button" value="3" id="btn_3" size="3"  onclick="add_TOText(3)">
+        </th>
+        <th>
+        	<input type="button" value="-" id="btn_-" size="3"  onclick="add_TOText('-')">
+        </th>
+    </tr>
+    <tr>
+        <th>
+        	<input type="button" value="." id="btn_." size="3"  onclick="add_TOText('.')">
+        </th>
+        <th>
+        	<input type="button" value="0" id="btn_0" size="3"  onclick="add_TOText(0)">
+        </th>
+        <th>
+        	<input type="button" value="+" id="btn_+" size="3"  onclick="add_TOText('+')">
+        </th>
+        <th>
+        	<input type="button" value="=" id="btn_=" size="3"  onclick="add_TOText('=')">
+        </th>
+    </tr>
+</table>
+</body>
+</html>
